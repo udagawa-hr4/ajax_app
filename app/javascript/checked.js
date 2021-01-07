@@ -8,6 +8,7 @@ function check() {
     post.addEventListener("click", () => {
       //クリックした際の処理の記述
       const postId = post.getAttribute("data-id");
+      
       const XHR = new XMLHttpRequest();
       XHR.open("GET", `/posts/${postId}`, true);
       XHR.responseType = "json";
@@ -17,6 +18,7 @@ function check() {
           alert(`Error ${XHR.status}: ${XHR.statusText}`);
           return null;          
         }
+        
         const item = XHR.response.post;
         if (item.checked === true) {
           post.setAttribute("data-check", "true");
